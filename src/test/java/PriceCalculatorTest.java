@@ -12,7 +12,7 @@ public class PriceCalculatorTest {
     }
 
     @Test
-    public void testPriceCalculator () {
+    public void testTotalPriceCalculatorWithoutTax() {
         float itemPrice = 10;
         int quantity = 5;
         float totalPriceWithoutTax = priceCalculator.calculatePriceWithoutTax(quantity,itemPrice);
