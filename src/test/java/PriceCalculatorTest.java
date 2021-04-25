@@ -16,6 +16,6 @@ public class PriceCalculatorTest {
         float itemPrice = 10;
         int quantity = 5;
         float totalPriceWithoutTax = priceCalculator.calculatePriceWithoutTax(quantity,itemPrice);
-        assertEquals(totalPriceWithoutTax,50);
+        assertEquals(totalPriceWithoutTax,50f,0);
     }
 }
