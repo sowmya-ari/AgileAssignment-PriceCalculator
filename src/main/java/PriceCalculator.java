@@ -6,13 +6,21 @@ public class PriceCalculator {
         return quantity * itemPrice;
     }
 
+    public static float calculatePriceWithTax(float grossPrice, float tax){
+        return 0;
+    }
+
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter number of items");
         int quantity = scanner.nextInt();
         System.out.println("Please enter price of the item");
         float itemPrice = scanner.nextFloat();
-        float totalPrice = calculatePriceWithoutTax(quantity,itemPrice);
-        System.out.println("Total price is " + totalPrice);
+        float grossPrice = calculatePriceWithoutTax(quantity,itemPrice);
+        System.out.println("Gross price is " + grossPrice);
+        float fixedTax = 3;
+        System.out.println("Apply fixed tax of " + fixedTax);
+        float netPrice = calculatePriceWithTax(grossPrice,fixedTax);
+        System.out.println("Net price is " + netPrice);
     }
 }
