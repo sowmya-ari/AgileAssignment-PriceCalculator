@@ -7,7 +7,7 @@ public class PriceCalculator {
     }
 
     public static float calculatePriceWithTax(float grossPrice, float tax){
-        return 0;
+        return grossPrice * (1+ (tax/100));
     }
 
     public static void main(String[] args){
