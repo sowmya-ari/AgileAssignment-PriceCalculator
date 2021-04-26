@@ -51,7 +51,7 @@ public class PriceCalculatorTest {
 
     @Test
     public void testTotalPriceCalculationsWithDiscountForApplicableGrossAmount() {
-        float grossPrice = 1000;
+        float grossPrice = 1001;
         float discountPercentage = 5f;
         float actualDiscountAmount = grossPrice * (discountPercentage/100);
         float calculatedDiscountAmount = priceCalculator.calculateDiscountAmount(grossPrice);

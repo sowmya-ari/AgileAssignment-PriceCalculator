@@ -23,6 +23,11 @@ public class PriceCalculator {
     }
 
     public static float calculateDiscountAmount(Float grossPrice){
+        if(grossPrice > 1000){
+            System.out.println("You purchase is applicable for discount of percentage " + 5);
+            return (grossPrice * 5)/100;
+        }
+        System.out.println("You purchase is not applicable to any discount");
         return 0;
     }
 
@@ -34,7 +39,11 @@ public class PriceCalculator {
         float itemPrice = scanner.nextFloat();
         float grossPrice = calculatePriceWithoutTax(quantity,itemPrice);
         System.out.println("Gross price is " + grossPrice);
-        System.out.println("Please enter the state");
+        float discountAmount = calculateDiscountAmount(grossPrice);
+        System.out.println("Deducted discount amount from gross price " + discountAmount);
+        grossPrice = grossPrice - discountAmount;
+        System.out.println("Gross price after applying discount amount is " + grossPrice);
+        System.out.println("Please enter the state for applying tax");
         String state = scanner.next().toUpperCase();
         List<String> supportedStates = Arrays.asList("UT","NV","TX","AL","CA");
         List<Float> taxes = Arrays.asList(4.85f,6.85f,6.25f,4f,7.25f);
@@ -47,6 +56,6 @@ public class PriceCalculator {
             System.out.println("Net price is " + netPrice);
             return;
         }
-        System.out.println("Entered state is not supported " + state);
+        System.out.println("Entered state is not supported for price calculations " + state);
     }
 }
