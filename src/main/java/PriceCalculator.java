@@ -32,8 +32,8 @@ public class PriceCalculator {
         System.out.println("Gross price is " + grossPrice);
         System.out.println("Please enter the state");
         String state = scanner.next().toUpperCase();
-        List<String> supportedStates = Arrays.asList("UT");
-        List<Float> taxes = Arrays.asList(4.85f);
+        List<String> supportedStates = Arrays.asList("UT","NV","TX","AL","CA");
+        List<Float> taxes = Arrays.asList(4.85f,6.85f,6.25f,4f,7.25f);
         HashMap<String,Float> stateTaxes = new HashMap<>();
         for(int i = 0; i<supportedStates.size() ; i++){
             stateTaxes.put(supportedStates.get(i),taxes.get(i));
