@@ -65,7 +65,7 @@ public class PriceCalculatorTest {
         calculatedDiscountAmount = priceCalculator.calculateDiscountAmount(grossPrice);
         assertEquals(calculatedDiscountAmount,actualDiscountAmount,3);
 
-        //Gross amount is greater than or equal to 10000 - Discount percentage is 10
+        //Gross amount is greater than or equal to 10000 but less than 50000 - Discount percentage is 10
         grossPrice = 10005;
         discountPercentage = 10;
         actualDiscountAmount = grossPrice * (discountPercentage/100);
@@ -73,14 +73,14 @@ public class PriceCalculatorTest {
         assertEquals(calculatedDiscountAmount,actualDiscountAmount,3);
 
 
-        //Gross amount is greater than or equal to 7000 - Discount percentage is 7
+        //Gross amount is greater than or equal to 7000 but less than 10000 - Discount percentage is 7
         grossPrice = 8000;
         discountPercentage = 7;
         actualDiscountAmount = grossPrice * (discountPercentage/100);
         calculatedDiscountAmount = priceCalculator.calculateDiscountAmount(grossPrice);
         assertEquals(calculatedDiscountAmount,actualDiscountAmount,3);
 
-        //Gross amount is greater than or equal to 5000 - Discount percentage is 5
+        //Gross amount is greater than or equal to 5000 but less than 7000 - Discount percentage is 5
         grossPrice = 6000;
         discountPercentage = 5;
         actualDiscountAmount = grossPrice * (discountPercentage/100);
