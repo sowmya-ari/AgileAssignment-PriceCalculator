@@ -27,6 +27,9 @@ public class PriceCalculator {
         if(grossPrice >= 50000){
             discountPercentage = 15;
         }
+        else if(grossPrice >= 10000){
+            discountPercentage = 10;
+        }
         else if(grossPrice > 1000) {
             discountPercentage = 3;
         }
