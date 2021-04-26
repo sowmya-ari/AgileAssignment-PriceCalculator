@@ -36,7 +36,16 @@ public class PriceCalculatorTest {
         String state = "UT";
         HashMap<String,Float> stateTaxes = new HashMap<>();
         stateTaxes.put(state,4.85f);
-        float totalPriceWithTax = priceCalculator.calculatePriceForSupportedStatesWithTax(state,stateTaxes);
+        float totalPriceWithTax = priceCalculator.calculatePriceForSupportedStatesWithTax(state,50f,stateTaxes);
         assertEquals(totalPriceWithTax,actualPriceWithTax,0);
+    }
+
+    @Test
+    public void totalPriceCalculatorForUnSupportedState() {
+        String state = "UTN";
+        HashMap<String,Float> stateTaxes = new HashMap<>();
+        stateTaxes.put("UN",4.85f);
+        float totalPriceWithTax = priceCalculator.calculatePriceForSupportedStatesWithTax(state,50f,stateTaxes);
+        assertEquals(totalPriceWithTax,0,0);
     }
 }
