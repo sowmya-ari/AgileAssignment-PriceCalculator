@@ -23,12 +23,18 @@ public class PriceCalculator {
     }
 
     public static float calculateDiscountAmount(Float grossPrice){
-        if(grossPrice > 1000){
-            System.out.println("You purchase is applicable for discount of percentage " + 3);
-            return (grossPrice * 3)/100;
+        float discountPercentage;
+        if(grossPrice >= 50000){
+            discountPercentage = 15;
         }
-        System.out.println("You purchase is not applicable to any discount");
-        return 0;
+        else if(grossPrice > 1000) {
+            discountPercentage = 3;
+        }
+        else {
+            discountPercentage = 0;
+        }
+        System.out.println("You purchase is applicable for discount of percentage " + discountPercentage);
+        return (grossPrice * discountPercentage)/100;
     }
 
     public static void main(String[] args){
