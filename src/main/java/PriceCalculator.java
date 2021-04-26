@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class PriceCalculator {
@@ -10,6 +13,10 @@ public class PriceCalculator {
         return grossPrice * (1+ (tax/100));
     }
 
+    public static float calculatePriceForSupportedStatesWithTax(String state, HashMap stateTaxes){
+        return 0;
+    }
+
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter number of items");
@@ -18,9 +25,15 @@ public class PriceCalculator {
         float itemPrice = scanner.nextFloat();
         float grossPrice = calculatePriceWithoutTax(quantity,itemPrice);
         System.out.println("Gross price is " + grossPrice);
-        float fixedTax = 3;
-        System.out.println("Apply fixed tax of " + fixedTax);
-        float netPrice = calculatePriceWithTax(grossPrice,fixedTax);
+        System.out.println("Please enter the state");
+        String state = scanner.next().toUpperCase();
+        List<String> supportedStates = Arrays.asList("UT");
+        List<Float> taxes = Arrays.asList(4.85f);
+        HashMap<String,Float> stateTaxes = new HashMap<>();
+        for(int i = 0; i<supportedStates.size() ; i++){
+            stateTaxes.put(supportedStates.get(i),taxes.get(i));
+        }
+        float netPrice = calculatePriceForSupportedStatesWithTax(state,stateTaxes);
         System.out.println("Net price is " + netPrice);
     }
 }

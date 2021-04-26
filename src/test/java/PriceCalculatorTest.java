@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashMap;
+
 import static org.junit.Assert.assertEquals;
 
 public class PriceCalculatorTest {
@@ -25,6 +27,16 @@ public class PriceCalculatorTest {
         float actualPriceWithTax = (float) (50 * (1+0.03));
         float grossPrice = 50;
         float totalPriceWithTax = priceCalculator.calculatePriceWithTax(grossPrice,tax);
+        assertEquals(totalPriceWithTax,actualPriceWithTax,0);
+    }
+
+    @Test
+    public void totalPriceCalculatorForSupportedStateWithTax() {
+        float actualPriceWithTax = (float) (50 * (1+(4.85/100)));
+        String state = "UT";
+        HashMap<String,Float> stateTaxes = new HashMap<>();
+        stateTaxes.put(state,4.85f);
+        float totalPriceWithTax = priceCalculator.calculatePriceForSupportedStatesWithTax(state,stateTaxes);
         assertEquals(totalPriceWithTax,actualPriceWithTax,0);
     }
 }
