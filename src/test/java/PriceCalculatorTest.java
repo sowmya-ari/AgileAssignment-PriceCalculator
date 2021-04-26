@@ -53,7 +53,7 @@ public class PriceCalculatorTest {
     public void testTotalPriceCalculationsWithDiscountForApplicableGrossAmount() {
         float grossPrice = 1000;
         float discountPercentage = 5f;
-        float actualDiscountAmount = 1000 * (1-(discountPercentage/100));
+        float actualDiscountAmount = grossPrice * (discountPercentage/100);
         float calculatedDiscountAmount = priceCalculator.calculateDiscountAmount(grossPrice);
         assertEquals(calculatedDiscountAmount,actualDiscountAmount,3);
     }
