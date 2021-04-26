@@ -50,11 +50,19 @@ public class PriceCalculatorTest {
     }
 
     @Test
-    public void testTotalPriceCalculationsWithDiscountForApplicableGrossAmount() {
+    public void testWhetherApplicableDiscountPercentageIsApplyingBasedOnGrossAmount() {
+        // Gross amount is greater than 1000 - Discount percentage is 3
         float grossPrice = 1001;
-        float discountPercentage = 5f;
+        float discountPercentage = 3;
         float actualDiscountAmount = grossPrice * (discountPercentage/100);
         float calculatedDiscountAmount = priceCalculator.calculateDiscountAmount(grossPrice);
+        assertEquals(calculatedDiscountAmount,actualDiscountAmount,3);
+
+        //Gross amount is greater than 50000 - Discount percentage is 15
+        grossPrice = 50000;
+        discountPercentage = 15;
+        actualDiscountAmount = grossPrice * (discountPercentage/100);
+        calculatedDiscountAmount = priceCalculator.calculateDiscountAmount(grossPrice);
         assertEquals(calculatedDiscountAmount,actualDiscountAmount,3);
     }
 
