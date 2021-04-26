@@ -13,7 +13,12 @@ public class PriceCalculator {
         return grossPrice * (1+ (tax/100));
     }
 
-    public static float calculatePriceForSupportedStatesWithTax(String state, HashMap stateTaxes){
+    public static float calculatePriceForSupportedStatesWithTax(String state, Float grossPrice, HashMap<String,Float> stateTaxes){
+        if(stateTaxes.containsKey(state)){
+            System.out.println("Applied tax percentage is " + stateTaxes.get(state));
+            float netPrice = calculatePriceWithTax(grossPrice,stateTaxes.get(state));
+            return netPrice;
+        }
         return 0;
     }
 
@@ -33,7 +38,11 @@ public class PriceCalculator {
         for(int i = 0; i<supportedStates.size() ; i++){
             stateTaxes.put(supportedStates.get(i),taxes.get(i));
         }
-        float netPrice = calculatePriceForSupportedStatesWithTax(state,stateTaxes);
-        System.out.println("Net price is " + netPrice);
+        float netPrice = calculatePriceForSupportedStatesWithTax(state,grossPrice,stateTaxes);
+        if(netPrice != 0f) {
+            System.out.println("Net price is " + netPrice);
+            return;
+        }
+        System.out.println("Entered state is not supported " + state);
     }
 }

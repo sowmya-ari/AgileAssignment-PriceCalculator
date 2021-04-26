@@ -37,7 +37,7 @@ public class PriceCalculatorTest {
         HashMap<String,Float> stateTaxes = new HashMap<>();
         stateTaxes.put(state,4.85f);
         float totalPriceWithTax = priceCalculator.calculatePriceForSupportedStatesWithTax(state,50f,stateTaxes);
-        assertEquals(totalPriceWithTax,actualPriceWithTax,0);
+        assertEquals(totalPriceWithTax,actualPriceWithTax,3);
     }
 
     @Test
